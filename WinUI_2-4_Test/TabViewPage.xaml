@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="WinUI_2_4_Test.TabViewPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:WinUI_2_4_Test"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:samplepages="using:WinUI_2_4_Test.SamplePages"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <ScrollViewer>
+        <Grid Margin="12,0,24,24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="Auto"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+
+            <TextBlock Grid.ColumnSpan="2" Style="{StaticResource BodyTextBlockStyle}">
+            The TabView control updates provide you with more control over how to render tabs. You can set the width of unselected tabs and show just an icon to save screen space:
+            </TextBlock>
+
+            <muxc:TabView x:Name="TabView3" Grid.Row="1" SelectedIndex="0" Margin="0,12,0,24" IsAddTabButtonVisible="False" MinHeight="475">
+                <muxc:TabView.TabItems>
+                    <muxc:TabViewItem  Header="Home" IsClosable="False">
+                        <muxc:TabViewItem.IconSource>
+                            <muxc:SymbolIconSource Symbol="Home" />
+                        </muxc:TabViewItem.IconSource>
+                        <samplepages:SamplePage1 />
+                    </muxc:TabViewItem>
+                    <muxc:TabViewItem  Header="Tab 2 Has Longer Text" IsClosable="False">
+                        <muxc:TabViewItem.IconSource>
+                            <muxc:SymbolIconSource Symbol="MusicInfo" />
+                        </muxc:TabViewItem.IconSource>
+                        <samplepages:SamplePage2 />
+                    </muxc:TabViewItem>
+                    <muxc:TabViewItem  Header="Third Tab" IsClosable="False">
+                        <muxc:TabViewItem.IconSource>
+                            <muxc:SymbolIconSource Symbol="Placeholder" />
+                        </muxc:TabViewItem.IconSource>
+                        <samplepages:SamplePage3 />
+                    </muxc:TabViewItem>
+                </muxc:TabView.TabItems>
+            </muxc:TabView>
+
+            <ComboBox Grid.Row="1" Grid.Column="1" Header="TabWidthBehavior" SelectedIndex="0" SelectionChanged="TabWidthBehaviorComboBox_SelectionChanged" Width="150" Margin="12,24">
+                <ComboBoxItem Content="SizeToContent" />
+                <ComboBoxItem Content="Equal" />
+                <ComboBoxItem Content="Compact" />
+            </ComboBox>
+
+            <TextBlock Grid.Row="2" Grid.ColumnSpan="2" Style="{StaticResource BodyTextBlockStyle}">
+           You can also hide the close button on unselected tabs until the user hovers over the tab (in previous versions it was always shown):
+            </TextBlock>
+
+            <muxc:TabView x:Name="TabView4" Grid.Row="3" SelectedIndex="0" Margin="0,12,0,0" IsAddTabButtonVisible="False" MinHeight="475">
+                <muxc:TabView.TabItems>
+                    <muxc:TabViewItem  Header="Home">
+                        <muxc:TabViewItem.IconSource>
+                            <muxc:SymbolIconSource Symbol="Home" />
+                        </muxc:TabViewItem.IconSource>
+                        <samplepages:SamplePage1 />
+                    </muxc:TabViewItem>
+                    <muxc:TabViewItem  Header="Tab 2 Has Longer Text">
+                        <muxc:TabViewItem.IconSource>
+                            <muxc:SymbolIconSource Symbol="MusicInfo" />
+                        </muxc:TabViewItem.IconSource>
+                        <samplepages:SamplePage2 />
+                    </muxc:TabViewItem>
+                    <muxc:TabViewItem  Header="Third Tab">
+                        <muxc:TabViewItem.IconSource>
+                            <muxc:SymbolIconSource Symbol="Placeholder" />
+                        </muxc:TabViewItem.IconSource>
+                        <samplepages:SamplePage3 />
+                    </muxc:TabViewItem>
+                </muxc:TabView.TabItems>
+            </muxc:TabView>
+
+            <ComboBox Grid.Row="3" Grid.Column="1" Header="TabViewItem Close Button Overlay Mode" SelectedIndex="1" SelectionChanged="TabCloseButtonOverlayModeComboBox_SelectionChanged" Width="150" Margin="12,24">
+                <ComboBoxItem Content="Auto" />
+                <ComboBoxItem Content="Always" />
+                <ComboBoxItem Content="OnHover" />
+            </ComboBox>
+
+        </Grid>
+    </ScrollViewer>
+</Page>
